@@ -1,0 +1,259 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            height: a;
+        }
+        
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        .password-container {
+            position: relative;
+        }
+        
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            color: #888;
+        }
+        
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        .form-footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+  <div style="height: 80%">
+    <div class="container">
+        <h2>Daftar Akun Baru</h2>
+        <form id="registerForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="nama_lengkap">Nama Lengkap</label>
+                <input type="text" id="nama_lengkap" name="nama_lengkap" required>
+                <div class="error" id="nama_error">Nama lengkap harus diisi</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="email_error">Format email tidak valid</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="nomor_telepon">Nomor Telepon</label>
+                <input type="tel" id="nomor_telepon" name="nomor_telepon" required>
+                <div class="error" id="telepon_error">Nomor telepon tidak valid</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" minlength="5" required>
+                <div class="error" id="username_error">Username minimal 5 karakter</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" minlength="8" required>
+                    <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+                </div>
+                <div class="error" id="password_error">Password minimal 8 karakter</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="konfirmasi_password">Konfirmasi Password</label>
+                <div class="password-container">
+                    <input type="password" id="konfirmasi_password" name="konfirmasi_password" required>
+                    <span class="toggle-password" onclick="togglePassword('konfirmasi_password')">👁️</span>
+                </div>
+                <div class="error" id="konfirmasi_error">Password tidak sama</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="jenis_kelamin">Jenis Kelamin</label>
+                <select id="jenis_kelamin" name="jenis_kelamin" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="laki-laki">Laki-laki</option>
+                    <option value="perempuan">Perempuan</option>
+                </select>
+                <div class="error" id="gender_error">Pilih jenis kelamin</div>
+            </div>
+            
+            <div class="form-group">
+                <input type="checkbox" id="setuju" name="setuju" required>
+                <label for="setuju" style="display: inline;">Saya setuju dengan syarat dan ketentuan</label>
+                <div class="error" id="setuju_error">Anda harus menyetujui syarat dan ketentuan</div>
+            </div>
+            
+            <button type="submit" class="btn">Daftar</button>
+            
+            <div class="form-footer">
+                Sudah memiliki akun? <a href="#">Masuk di sini</a>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        function togglePassword(id) {
+            const passwordInput = document.getElementById(id);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+        
+        function validateForm() {
+            let isValid = true;
+            const nama = document.getElementById("nama_lengkap").value;
+            const email = document.getElementById("email").value;
+            const telepon = document.getElementById("nomor_telepon").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const konfirmasi = document.getElementById("konfirmasi_password").value;
+            const jenis_kelamin = document.getElementById("jenis_kelamin").value;
+            const setuju = document.getElementById("setuju").checked;
+            
+            // Reset errors
+            document.querySelectorAll(".error").forEach(el => {
+                el.style.display = "none";
+            });
+            
+            // Validate nama
+            if (nama.trim() === "") {
+                document.getElementById("nama_error").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("email_error").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate telepon
+            const teleponPattern = /^[0-9]{10,13}$/;
+            if (!teleponPattern.test(telepon)) {
+                document.getElementById("telepon_error").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate username
+            if (username.length < 5) {
+                document.getElementById("username_error").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate password
+            if (password.length < 8) {
+                document.getElementById("password_error").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate konfirmasi password
+            if (password !== konfirmasi) {
+                document.getElementById("konfirmasi_error").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate jenis kelamin
+            if (jenis_kelamin === "") {
+                document.getElementById("gender_error").style.display = "block";
+                isValid = false;
+            }
+            
+            // Validate checkbox
+            if (!setuju) {
+                document.getElementById("setuju_error").style.display = "block";
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert("Registrasi berhasil! Data akan diproses.");
+                // Dalam implementasi nyata, kirim data ke server di sini
+                // dengan menggunakan fetch API atau XMLHttpRequest
+            }
+            <a href="daftar.html">Daftar sekarang</a>
+            
+            return false; // Mencegah form submit (hanya untuk demo)
+        }
+    </script>
+</body>
+</html>
