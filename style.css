@@ -1,140 +1,61 @@
-html,
+/* Gaya umum */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Latar belakang gambar persawahan */
 body {
-  margin: 0px;
-  padding: 0px;
-  font-size: 16px;
-  font-family: 'Times New Roman', Times, serif;
-}
-.wrapper {
-  width: 1024px;
-  margin: auto;
-  padding:  20px 0px 20px 0px;
-}
-nav {
-  background-color: #222831;
-  color: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-nav > .wrapper{
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.2rem;
-  align-items: center;
-}
-.menu{
-  width: 50%;
-}
-.menu > ul {
-  display: flex;
-  list-style-type: none;
-  margin: 0px;
-  padding: opx;
-  justify-content: space-between;
-}
-.menu > ul > li > a {
-  text-decoration: none;
-  color: #fff;
-  
-}
-.logo{
-  display: flex;
-  align-items: center;
-}
-.logo > img{
-  height: 80px;
-}
-/*
-*hero/jumbotron
-*/
-header {
-  background: url('../image/gb\,hder.png');
   height: 100vh;
-  background-position: center center;
-  background-size:  cover;
-  background-repeat: no-repeat;
-  position: relative;
-}
-.header-opacity {
-   background-color: #40423f;
-   width: 100%;
-   height: 100%;
-   opacity: 10%;
-   position: absolute;
-   top: 0;
-   left: 0;
-}
-.header-jumbotron {
-  position: absolute;
-  top: 0;
-  left: 0;
+  background: url('https://img.freepik.com/premium-photo/rear-view-man-sitting-field-against-sky-sunset_1048944-19346549.jpg?ga=GA1.1.31761521.1735656415&semt=ais_hybrid&w=740') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-  text-align: center;
+  justify-content: center;
 }
-.header-jumbotron > h4{
-  color: #fff;
-  font-size: 2rem;
-  margin: 0px;
-  padding: 0px;
+
+/* Kontainer form login */
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 350px;
 }
-.header-jumbotron > h5 {
-  color: #fff;
-  margin: 5px;
-  padding: 5px;
-  font-size: 7rch;
-  line-height: 3,8rem;
-  text-transform: uppercase;
-}
-.header-jumbotron > p{
-  padding: 5px;
-  margin: 0px 5px 20px 5px;
-   font-size: 3rem;
-  color: #f4f7f8;
-}
-a{
-  padding: 7px;
-  text-decoration: none;
-  color: black;
-  text-shadow: none;
-}
-.button {
-  background-color: #ffce10;
-  padding: 5px 10px 5px 10px;
-  border-radius: 5px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.button-xl {
-  font-size: 2rch;
-  padding: 20px;
-}
-#statistic {
-  background-color: #393e46;
-  color: #f4f7f8;
-}
-#statistic > .wrapper {
-  padding: 50px;
-  width: 80%;
+
+/* Form */
+.login-form {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
 }
-#statistic > .wrapper > div {
+
+.login-form h2 {
   text-align: center;
+  margin-bottom: 20px;
 }
-#statistic > .wrapper > div > p{
-  font-size: 4rch;
-  margin: 0px;
-  padding: 0px;
+
+.login-form input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
 }
-#statistic > .wrapper > div > p > i{
-  margin-right: 10px;
-  font-size: 4rch;
+
+.login-form button {
+  padding: 12px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-#statistic > .wrapper > div > small {
-  font-size: 1,5rch;
+
+.login-form button:hover {
+  background-color: #45a049;
 }
